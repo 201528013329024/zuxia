@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  route_id: 1
+  ticket_id: MyString
+
+two:
+  user: MyString
+  route_id: 1
+  ticket_id: MyString

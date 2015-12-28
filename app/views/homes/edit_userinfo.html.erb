@@ -1,0 +1,41 @@
+
+
+<!-- end header -->
+<div class="row-2">
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="flexslider">
+	  <div class="grid_12 ident-bot-2">
+      <div class="block-2"> <img class="img-border fleft" src="/assets/user_img.jpg" alt="" />
+        <div class="block-2-1">
+
+		<div id="confirm">
+          <%if session[:user] != nil%>
+        <%=form_tag  homes_editing_userinfo_path(:name,:pwd,:tel,:meed_edit=>1), :method => :get do %>
+            <fieldset>
+
+            <label >Name<br><%=text_field_tag :name%></label><br>
+            <label >Email<br><%=email_field_tag 'email',session[:user]['email'],disabled:true%><br>
+            <label >Password<br><%=text_field_tag :pwd%></label><br>
+            <label >Telphone<br><%=telephone_field_tag :tel%></label><br>
+              <br><br><div ></div>
+            <div class="btns"><%=submit_tag "提    交"%></div>
+            </fieldset>
+         <%end%>
+          <%else%>
+              <br> <br> <br><label style="font-size: 30px;">您尚未登录，请登录后查看个人信息！</label>
+          <%end%>
+        </div>
+
+
+		</div>
+        <div class="clear"></div>
+		</div>
+		</div>
+      </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+

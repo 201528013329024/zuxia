@@ -1,0 +1,47 @@
+<!--<!DOCTYPE html>-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<title>登录界面</title>
+
+<!--<link rel="stylesheet" type="text/css" href="/body.css"/>-->
+<!--<link rel="stylesheet" type="text/css" href="/stylelogin.css" />-->
+
+
+<!--</head>-->
+<!--<body >-->
+
+
+<body style="background-color: #339bb9">
+<div class="container">
+	<section id="content">
+		<%=form_tag homes_login_path(:emal,:pwd), :method => :get do %>
+
+			<h1>登录</h1>
+            <h1 style="color: red"><%=@t%></h1>
+            <div style="text-align: left;font-size: 20px">&nbsp;&nbsp;&nbsp;邮&nbsp;箱 </div>
+			<div>
+             <%= text_field :email,'email',placeholder:'请输入邮箱地址'%>
+			</div>
+            <div style="text-align: left;font-size: 20px">&nbsp;&nbsp;&nbsp;密&nbsp;码 </div>
+			<div>
+                <%= password_field_tag :pwd,''%>
+			</div>
+
+            <div class="">
+				<span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>			</div>
+			<div>
+				<!-- <input type="submit" value="Log in" /> -->
+
+                <%=submit_tag "登录" %>
+				<!--<a href="#">忘记密码?</a>-->
+				<!--<a href="register.html">马上注册</a>-->
+			</div>
+		<!-- form -->
+          <% end%>
+	</section><!-- content -->
+</div>
+<!-- container -->
+
+<div style="height: 100px"></div>
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_end: MyString
+  drive_data: 2015-12-19 00:28:44
+  drive_time: MyString
+  ticket_num: 1
+  price: 1.5
+  bus_id: MyString
+
+two:
+  start_end: MyString
+  drive_data: 2015-12-19 00:28:44
+  drive_time: MyString
+  ticket_num: 1
+  price: 1.5
+  bus_id: MyString

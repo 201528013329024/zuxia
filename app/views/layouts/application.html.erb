@@ -1,0 +1,94 @@
+<%# encoding: utf-8%>
+<!DOCTYPE html>
+<html>
+<head>
+  <!--<title>足下</title>-->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!--<script src="/jquery_ujs.js"></script>-->
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+
+</head>
+<body>
+
+<header>
+  <div class="row-1">
+    <div class="container_12">
+      <div class="grid_12">
+        <div class="logo fleft">
+          <h1><a href="index.html">12306plus</a></h1>
+          <div class="slogan">足下</div>
+        </div>
+        <div class="login">
+          <ul>
+            <% if session[:user]==nil%>
+                <li><%=link_to "登录", homes_login_path %>&nbsp;&nbsp;&nbsp;&nbsp;<%=link_to "注册", homes_register_path %></li>
+            <% else%>
+                <li><a><%=session[:user]['name']+",  您好！"%>&nbsp;&nbsp;<%=link_to "退出", homes_logout_path %></a></li>
+
+            <%end%>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="row-3">
+    <div class="container_12">
+      <div class="grid_12">
+        <!-- menu -->
+        <nav id="main-nav-menu">
+          <ul class="sf-menu">
+            <li ><%=link_to '主页',homes_index_path%></li>
+            <li><%=link_to '个人信息',homes_userinfo_path%>
+            </li>
+            <li><a href="#">订票记录</a>
+              <ul>
+                <li><%=link_to '未出票车票',homes_future_order_path %></li>
+                <li><%=link_to '已发车车票',homes_last_order_path %></li>
+              </ul>
+            </li>
+            <li><a href="blog.html">校车风采</a>
+              <ul>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog-single.html">Blog Details</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html">联系我们</a></li>
+
+            <li  style="background:#252525;;padding-left: 316px"><a><%="今天是 "+Time.new.strftime('%Y年%m月%d日')%></a></li>
+          </ul>
+
+
+        </nav>
+
+
+        <!-- end menu -->
+        <select id="responsive-main-nav-menu" onChange="javascript:window.location.replace(this.value);">
+        </select>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</header>
+
+<%= yield %>
+
+<footer>
+  <div class="footer-2">
+    <div class="container_12">
+      <div class="wrapper">
+        <div class="grid_12">
+          <div class="policy">&copy; Copyright &copy;中国科学院大学  <a href="http://www.ucas.ac.cn/" target="_blank"></a></div>
+          <div class="policy"><%=link_to '管理员登陆','/admin'%></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

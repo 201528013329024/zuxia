@@ -1,0 +1,51 @@
+
+<!-- end header -->
+<div class="row-2">
+  <div class="container_12">
+
+    <div class="grid_12">
+
+      <div class="flexslider">
+        <table class="imagetable">
+
+          <tr>
+            <th>车票编号</th>
+            <th>发车时间</th>
+            <th>路线</th>
+            <th>票价</th>
+            <th>操作</th>
+          </tr>
+          <%if session[:user]!=nil %>
+          <% @order.each do |od|%>
+              <%@route = Route.find(od.route_id)%>
+              <%@drive_time = @route.drive_data.strftime('%Y%m%d')+@route.drive_time.to_time.strftime('%H%M')%>
+              <%@now_time = Time.new.strftime('%Y%m%d%H%M')%>
+              <%if @drive_time < @now_time %>
+                  <tr>
+
+
+                    <th><%=od.ticket_id %></th>
+
+                    <th>
+
+                      <%=@route.drive_data.strftime('%Y年%m月%d日')+' '+@route.drive_time%>
+                    </th>
+                    <th><%=@route.start_end %></th>
+                    <th><%=@route.price %></th>
+                    <!--<th><a class="button-red ident-bot-2" href="evaluate.html">退票</a></th>-->
+                    <th><%=link_to '退票', homes_return_ticket_path(:return_id => od.id)%></th>
+
+                  </tr>
+              <%end%>
+          <%end%>
+
+          <%end%>
+        </table>
+
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>
+

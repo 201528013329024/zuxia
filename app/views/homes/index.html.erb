@@ -1,0 +1,126 @@
+
+
+<!--<!DOCTYPE html>-->
+<!--<html >-->
+<!--<head>-->
+  <title>足下</title>
+  <!--<meta charset="utf-8" />-->
+  <!--<meta name="viewport" content="width=device-width; initial-scale=1.0" />-->
+  <!--<link rel="stylesheet" href="css/style.css" media="screen" />-->
+  <!--<link rel="stylesheet" type="/text/css" href="css/graphslide.css"/>-->
+  <!--<link rel="icon" href="images/favicon.ico" type="image/x-icon" />-->
+  <!--<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />-->
+  <!--<script src="/jquery-1.7.2.min.js"></script>-->
+
+  <!--<script src="/jquery_ujs.js"></script>-->
+
+  <!--[if lt IE 9]>
+  <!--<script src="/html5.js"></script>-->
+  <link rel="stylesheet" href="/ie.css">
+
+
+  <!--<script type="text/JavaScript">-->
+      <!--function error(){-->
+          <!--alert('您已经预丁过该车票?');-->
+<!--//          history.go(-1);-->
+      <!--}-->
+  <!--</script>-->
+
+  <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<!--</head>-->
+<!--<body id="page1">-->
+<!-- header -->
+
+
+<!-- end header -->
+<div class="row-2">
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="flexslider">
+        <div class="box">
+          <ul class="list">
+            <li><img class="slide" src="/assets/ps1.jpg" height="375" /></li>
+            <li><img class="slide" src="/assets/ps2.jpg" height="375" /></li>
+            <li><img class="slide" src="/assets/ps3.jpg" height="375" /></li>
+            <li><img class="slide" src="/assets/ps4.jpg" height="375" /></li>
+          </ul>
+          <div class="index">
+            <a href="javascript:" class="index_1">1</a>
+            <a href="javascript:" class="index_2">2</a>
+            <a href="javascript:" class="index_3">3</a>
+            <a href="javascript:" class="index_4">4</a>
+          </div>
+        </div>
+        <div class="flex-caption">
+          <div class="flex-bg">
+            <div class="flex-border">
+              <div class="slide-text-1 ident-bot-1">简介</div>
+              <div class="slide-text-2">中国科学院大学（英文名 ：University of Chinese Academy of Sciences），简称"国科大"，是国家教育部正式批准成立的一所以研究生教育为主的科教融合、独具特色的高等学校。国科大的前身是中国科学院研究生院，成立于1978年，是经党中央国务院批准创办的新中国第一所研究生院，培养了我国的第一个理学博士、第一个工学博士、第一个女博士、第一个双学位博士。经教育部批准，国科大从2014年起开始招收本科生。<a href="#">Click Here</a></div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <table>
+        <!--<tr>-->
+          <!--<th><%=@is_order%></th>-->
+        <!--</tr>-->
+
+
+          <%if @is_order == 1%>
+            <tr > <th style="background: red" colspan="5">您已经预定过该车票!</th></tr>
+          <%elsif @is_order == 0%>
+            <tr >  <th style="background:blue" colspan="5">恭喜您成功预定！</th></tr>
+          <%elsif @is_order == -1%>
+
+          <%end%>
+
+        <tr>
+          <th>路线</th>
+          <th>发车时间</th>
+          <th>余票</th>
+          <th>票价</th>
+          <th>操作</th>
+        </tr>
+
+        <% @m.each do |mm| %>
+
+
+        <tr>
+          <!--<th><%=mm.id%></th>-->
+          <th><%=mm.start_end %></th>
+
+          <th><%=mm.drive_data.strftime('%Y-%m-%d').to_s%></th>
+          <th><%=mm.ticket_num%></th>
+          <th><%=mm.price %></th>
+          <th><%= link_to_if (session[:user]!=nil && mm.ticket_num>0), '预定', homes_book_ticket_path(mm),:class=>'button-blue'%>
+            <!--<%if @order_info!=nil%>-->
+            <!--<script>error()</script>-->
+                <!--<%end%>-->
+          &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to_if  (session[:user]!=nil),"关注", homes_book_ticket_path(mm),:class=>"button-red"%></th>
+
+        </tr>
+
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+
+  <div style="height: 20px">
+
+  </div>
+
+</div>
+</div>
+
+
+
+<!-- footer -->
+
+<!--<script src="js/custom.js"></script>-->
+
+<!--</body>-->
+<!--</html>-->

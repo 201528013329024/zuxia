@@ -1,0 +1,58 @@
+<%# encodng: utf-8%>
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>注册界面</title>
+
+  <link rel="stylesheet" type="text/css" href="/body.css"/>
+  <link rel="stylesheet" type="text/css" href="/stylelogin.css" />
+</head>
+<body >
+
+
+
+<div class="container">
+  <section id="content">
+    <%=form_tag homes_register_path(:name,:pwd,:email,:tel,:role), :method => :get do %>
+
+        <h1>登录</h1>
+        <h1 style="color: red"><%=@info%></h1>
+        <div style="text-align: left;font-size: 20px">&nbsp;&nbsp;&nbsp;用户名<font color="red"><%=@name_info%></font> </div>
+        <div>
+          <%= text_field :name,'name',placeholder:'请输入用户名称'%>
+        </div>
+        <div style="text-align: left;font-size: 20px">&nbsp;&nbsp;&nbsp;邮&nbsp;箱<font color="red"><%=@email_info%></font> </div>
+        <div>
+          <%= text_field :email,'email',placeholder:'请输入邮箱地址'%>
+        </div>
+        <div style="text-align: left;font-size: 20px">&nbsp;&nbsp;&nbsp;密&nbsp;码 <font color="red"><%=@pwd_info%></font></div>
+        <div>
+          <%= password_field_tag :pwd,''%>
+        </div>
+        <div style="text-align: left;font-size: 20px">&nbsp;&nbsp;&nbsp;电&nbsp;话 <font color="red"><%=@tel_info%></font></div>
+        <div>
+          <%= text_field :tel,''%>
+        </div>
+        <!--<div>-->
+          <!--<label>角色:</label>-->
+          <!--<label>学生:</label>-->
+          <!--<%=radio_button_tag :role, 'student',true%>-->
+          <!--&nbsp;&nbsp;-->
+          <!--<label>助教:</label>-->
+          <!--<%=radio_button_tag :role, 'assistant'%>-->
+        <!--</div>-->
+
+        <div >
+          <!-- <input type="submit" value="Log in" /> -->
+
+          <%=submit_tag "提    交"%>
+
+        </div>
+        <!-- form -->
+    <% end%>
+  </section><!-- content -->
+</div>
+<!-- container -->
+
+</body>
+</html>
